@@ -98,16 +98,9 @@ The project includes the following development dependencies:
 The project has the following structure:
 
 ```
-.gitignore
-.prettierrc
 .vscode/
 	extensions.json
 	settings.json
-components.json
-eslint.config.js
-index.html
-package.json
-postcss.config.js
 public/
 README.md
 src/
@@ -115,25 +108,16 @@ src/
 	assets/
 	components/
 		custom/
-			...
 		ui/
 	core/
 		constants/
 		services/
 		utils/
-	index.css
 	lib/
 		utils.ts
 	main.tsx
 	pages/
-		404.tsx
-		CreateTodo.tsx
-		index.ts
-		Login.tsx
 	routes/
-		index.ts
-		main.tsx
-		public.tsx
 	vite-env.d.ts
 tailwind.config.js
 tsconfig.app.json
