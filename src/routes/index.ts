@@ -5,6 +5,7 @@ import { accountPlanningRouter } from './accountPlanning';
 import { customerInformationRouter } from './customerInformation';
 import { reportRouter } from './report';
 import { adminMenuRouter } from './adminMenu';
+import { searchRouter } from './search';
 import loadable from '@loadable/component';
 
 // split the routes by module
@@ -17,6 +18,7 @@ const router = createBrowserRouter([
       ...customerInformationRouter,
       ...reportRouter,
       ...adminMenuRouter,
+      ...searchRouter,
     ],
   },
   ...publicRouter,
