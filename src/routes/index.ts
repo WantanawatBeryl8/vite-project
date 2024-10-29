@@ -5,6 +5,7 @@ import { NotFound } from '@/pages';
 import { accountPlanningRouter } from './accountPlanning';
 import { customerInformationRouter } from './customerInformation';
 import { reportRouter } from './report';
+import { adminMenuRouter } from './adminMenu';
 
 // split the routes by module
 const router = createBrowserRouter([
@@ -13,6 +14,7 @@ const router = createBrowserRouter([
   ...accountPlanningRouter,
   ...customerInformationRouter,
   ...reportRouter,
+  ...adminMenuRouter,
   {
     path: '*',
     Component: NotFound,
