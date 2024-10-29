@@ -2,8 +2,7 @@
 
 import { Button } from '@/components/ui/button';
 import { useAuth } from '@/core/store/useAuth';
-import { siteMap } from '@/core/utils';
-import Cookies from 'js-cookie';
+import { signOut, siteMap } from '@/core/utils';
 
 function PortalPage() {
   // const navigate = useNavigate();
@@ -60,7 +59,7 @@ function PortalPage() {
       <div className="flex justify-center">
         <Button
           onClick={() => {
-            Cookies.remove('access_token');
+            signOut();
             window.location.reload();
           }}
         >
