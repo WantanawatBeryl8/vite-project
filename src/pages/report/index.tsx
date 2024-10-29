@@ -1,3 +1,4 @@
+import { Button } from '@/components/ui/button';
 import { useNavigate } from 'react-router-dom';
 
 function ReportPage() {
@@ -6,6 +7,7 @@ function ReportPage() {
   return (
     <div>
       <h1>Report</h1>
+      <Button onClick={() => navigate('/portal')}>Back</Button>
     </div>
   );
 }

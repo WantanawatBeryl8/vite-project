@@ -1,3 +1,4 @@
+import { Button } from '@/components/ui/button';
 import { useNavigate } from 'react-router-dom';
 
 function CallPlanCallMemoPage() {
@@ -6,6 +7,7 @@ function CallPlanCallMemoPage() {
   return (
     <div>
       <h1>CallPlan / CallMemo</h1>
+      <Button onClick={() => navigate('/portal')}>Back</Button>
     </div>
   );
 }
