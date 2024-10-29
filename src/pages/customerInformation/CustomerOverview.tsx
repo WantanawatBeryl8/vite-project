@@ -10,12 +10,10 @@ function CustomerOverviewPage() {
       <h1>Customer Overview Page</h1>
       <Button
         className="m-4 flex"
-        onClick={() =>
-          navigate(siteMap.customerInformation.customerInformation)
-        }
+        onClick={() => navigate(siteMap.portal)}
         variant="default"
       >
-        Go to Customer Information Page
+        Back
       </Button>
     </div>
   );
