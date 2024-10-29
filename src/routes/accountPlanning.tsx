@@ -1,32 +1,26 @@
 import { siteMap } from '@/core/utils';
-import {
-  BOAndFamilyPage,
-  CallPlanCallMemoPage,
-  EmployeePage,
-  SMEBusinessPage,
-  SupplyChainPage,
-} from '@/pages/accountPlanning';
+import { lazy } from 'react';
 import { RouteObject } from 'react-router-dom';
 
 export const accountPlanningRouter: RouteObject[] = [
   {
     path: siteMap.accountPlanning.callPlanCallMemo,
-    Component: CallPlanCallMemoPage,
+    Component: lazy(() => import('@/pages/accountPlanning/CallPlanCallMemo')),
   },
   {
     path: siteMap.accountPlanning.smeBUsiness,
-    Component: SMEBusinessPage,
+    Component: lazy(() => import('@/pages/accountPlanning/SMEBusiness')),
   },
   {
     path: siteMap.accountPlanning.boAndFamily,
-    Component: BOAndFamilyPage,
+    Component: lazy(() => import('@/pages/accountPlanning/BOAndFamily')),
   },
   {
     path: siteMap.accountPlanning.employee,
-    Component: EmployeePage,
+    Component: lazy(() => import('@/pages/accountPlanning/Employee')),
   },
   {
     path: siteMap.accountPlanning.supplyChain,
-    Component: SupplyChainPage,
+    Component: lazy(() => import('@/pages/accountPlanning/SupplyChain')),
   },
 ];
