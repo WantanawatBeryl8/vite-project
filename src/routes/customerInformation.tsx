@@ -8,7 +8,7 @@ import {
 } from '@/pages/customerInformation';
 import { RouteObject } from 'react-router-dom';
 
-export const publicRouter: RouteObject[] = [
+export const customerInformationRouter: RouteObject[] = [
   {
     path: siteMap.customerInformation.boAndFamily,
     Component: BOFamilyPage,
