@@ -1,32 +1,30 @@
 import { siteMap } from '@/core/utils';
-import {
-  BOFamilyPage,
-  CustomerInformationPage,
-  CustomerOverviewPage,
-  EmployeePage,
-  TreeViewPage,
-} from '@/pages/customerInformation';
+import { lazy } from 'react';
 import { RouteObject } from 'react-router-dom';
 
 export const customerInformationRouter: RouteObject[] = [
   {
     path: siteMap.customerInformation.boAndFamily,
-    Component: BOFamilyPage,
+    Component: lazy(() => import('@/pages/customerInformation/BOFamily')),
   },
   {
     path: siteMap.customerInformation.customerInformation,
-    Component: CustomerInformationPage,
+    Component: lazy(
+      () => import('@/pages/customerInformation/CustomerInformation'),
+    ),
   },
   {
     path: siteMap.customerInformation.customerOverview,
-    Component: CustomerOverviewPage,
+    Component: lazy(
+      () => import('@/pages/customerInformation/CustomerOverview'),
+    ),
   },
   {
     path: siteMap.customerInformation.employee,
-    Component: EmployeePage,
+    Component: lazy(() => import('@/pages/customerInformation/Employee')),
   },
   {
     path: siteMap.customerInformation.treeView,
-    Component: TreeViewPage,
+    Component: lazy(() => import('@/pages/customerInformation/TreeView')),
   },
 ];
