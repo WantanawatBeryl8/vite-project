@@ -1,10 +1,10 @@
 import { siteMap } from '@/core/utils';
-import { lazy } from 'react';
+import loadable from '@loadable/component';
 import { RouteObject } from 'react-router-dom';
 
 export const reportRouter: RouteObject[] = [
   {
     path: siteMap.report.index,
-    Component: lazy(() => import('@/pages/report')),
+    Component: loadable(() => import('@/pages/report')),
   },
 ];

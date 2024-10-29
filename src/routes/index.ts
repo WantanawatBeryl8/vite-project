@@ -1,23 +1,28 @@
 import { createBrowserRouter } from 'react-router-dom';
 import { publicRouter } from './public';
 import { mainRouter } from './main';
-import { NotFound } from '@/pages';
 import { accountPlanningRouter } from './accountPlanning';
 import { customerInformationRouter } from './customerInformation';
 import { reportRouter } from './report';
 import { adminMenuRouter } from './adminMenu';
+import loadable from '@loadable/component';
 
 // split the routes by module
 const router = createBrowserRouter([
+  {
+    Component: loadable(() => import('@/components/custom/ProtectRoute')),
+    children: [
+      ...mainRouter,
+      ...accountPlanningRouter,
+      ...customerInformationRouter,
+      ...reportRouter,
+      ...adminMenuRouter,
+    ],
+  },
   ...publicRouter,
-  ...mainRouter,
-  ...accountPlanningRouter,
-  ...customerInformationRouter,
-  ...reportRouter,
-  ...adminMenuRouter,
   {
     path: '*',
-    Component: NotFound,
+    Component: loadable(() => import('@/pages/404')),
   },
 ]);
 

@@ -1,29 +1,31 @@
 import { Button } from '@/components/ui/button';
-import { useFetchTodos } from '@/core/services/hooks/useFetchTodo';
+import Cookies from 'js-cookie';
+import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 function LoginPage() {
-  const { data: todos = [], isLoading } = useFetchTodos();
   const navigate = useNavigate();
 
-  if (isLoading) {
-    return <p>Loading...</p>;
-  }
+  useEffect(() => {
+    if (Cookies.get('access_token')) {
+      navigate('/portal', { replace: true });
+    }
+  }, [navigate]);
 
   return (
     <div>
       <Button
         className="m-4 flex"
-        onClick={() => navigate('/add-todo')}
-        variant="default"
+        onClick={() => {
+          Cookies.set(
+            'access_token',
+            'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c',
+          );
+          window.location.reload();
+        }}
       >
-        Add Todo
+        login
       </Button>
-      {todos.map(todo => (
-        <div key={todo.id}>
-          <p>{todo.title}</p>
-        </div>
-      ))}
     </div>
   );
 }

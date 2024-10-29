@@ -1,5 +1,7 @@
 export const siteMap = {
+  login: '/login',
   portal: '/portal',
+  search: '/search',
   accountPlanning: {
     callPlanCallMemo: '/account-planning/call',
     smeBUsiness: '/account-planning/sme',
