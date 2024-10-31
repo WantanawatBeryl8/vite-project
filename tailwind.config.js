@@ -44,6 +44,9 @@ export default {
         divider: {
           'faint-grey': '#EAE7EC',
         },
+        hover: {
+          'light-purple': '#C8ADE6',
+        },
       },
       keyframes: {
         'accordion-down': {
