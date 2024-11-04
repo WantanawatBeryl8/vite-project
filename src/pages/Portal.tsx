@@ -1,8 +1,12 @@
 // import { useNavigate } from 'react-router-dom';
 
+import { mockColumns } from '@/components/custom/tables/Columns/mock';
+import DataTable from '@/components/custom/tables/Table';
 import { Button } from '@/components/ui/button';
 import { useAuth } from '@/core/store/useAuth';
 import { signOut, siteMap } from '@/core/utils';
+import axios from 'axios';
+import { useEffect, useState } from 'react';
 
 function PortalPage() {
   // const navigate = useNavigate();
@@ -15,6 +19,16 @@ function PortalPage() {
       link: value,
     }),
   );
+
+  const [mockData, setData] = useState([]);
+
+  const fetchData = async () => {
+    const result = await axios('https://api.tvmaze.com/search/shows?q=snow');
+    setData(result.data);
+  };
+  useEffect(() => {
+    fetchData();
+  }, []);
 
   const customerInformationLink = Object.entries(
     siteMap.customerInformation,
@@ -55,6 +69,10 @@ function PortalPage() {
             Report
           </a>
         </div>
+      </div>
+
+      <div>
+        <DataTable data={mockData} columns={mockColumns} />
       </div>
       <div className="flex justify-center">
         <Button
