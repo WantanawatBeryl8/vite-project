@@ -3,8 +3,8 @@ import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
-const BasePieChart = ({ data, options }) => {
+const PieChartBase = ({ data, options }) => {
   return <Pie data={data} options={options} />;
 };
 
-export default BasePieChart;
+export default PieChartBase;

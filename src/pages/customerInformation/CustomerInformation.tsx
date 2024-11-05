@@ -2,11 +2,13 @@ import ProgressDoughnutChart from '@/components/custom/graph/ProgressDoughnutCha
 import { Button } from '@/components/ui/button';
 import { siteMap } from '@/core/utils';
 import { useNavigate } from 'react-router-dom';
+import { ChartOptions } from 'chart.js';
+import BreadcrumbBase from '@/components/custom/breadcrumb/BreadcrumbBase';
 
 function CustomerInformationPage() {
   const navigate = useNavigate();
 
-  const options = {
+  const options: ChartOptions<'doughnut'> = {
     responsive: true,
     rotation: -135,
     circumference: 270,
@@ -21,6 +23,12 @@ function CustomerInformationPage() {
     },
   };
 
+  const menus = [
+    { name: 'Home', path: '/' },
+    { name: 'Components', path: '/components' },
+    { name: 'Breadcrumb' }, // หน้าเพจปัจจุบัน
+  ];
+
   return (
     <div>
       <h1>Customer Information Page</h1>
@@ -32,8 +40,17 @@ function CustomerInformationPage() {
         Back
       </Button>
       <div>
-        <h1>Doughnut Chart</h1>
-        <ProgressDoughnutChart progress={75} options={options} />
+        <h1>Progress Doughnut Chart</h1>
+        <ProgressDoughnutChart
+          progress={75}
+          fontSize={30}
+          positionY={15}
+          options={options}
+        />
+      </div>
+      <div>
+        <h1>Breadcrumb Base</h1>
+        <BreadcrumbBase menus={menus} />
       </div>
     </div>
   );

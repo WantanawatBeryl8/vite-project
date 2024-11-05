@@ -8,16 +8,16 @@ import {
   BreadcrumbSeparator,
 } from '@/components/ui/breadcrumb';
 
-type BreadcrumbMenu = {
+interface BreadcrumbMenu {
   name: string;
   path?: string;
-};
+}
 
-type BreadcrumbProps = {
+interface BreadcrumbProps {
   menus: BreadcrumbMenu[];
-};
+}
 
-function BreadcrumbBase({ menus }: BreadcrumbProps) {
+const BreadcrumbBase: React.FC<BreadcrumbProps> = ({ menus }) => {
   return (
     <Breadcrumb>
       <BreadcrumbList>
@@ -36,6 +36,6 @@ function BreadcrumbBase({ menus }: BreadcrumbProps) {
       </BreadcrumbList>
     </Breadcrumb>
   );
-}
+};
 
 export default BreadcrumbBase;

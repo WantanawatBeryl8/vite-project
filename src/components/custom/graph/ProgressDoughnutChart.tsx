@@ -1,31 +1,48 @@
-import { Doughnut } from 'react-chartjs-2';
-import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
+import {
+  Chart as ChartJS,
+  ArcElement,
+  Tooltip,
+  Legend,
+  Plugin,
+  ChartOptions,
+} from 'chart.js';
+import DoughnutChartBase from './DoughnutChartBase';
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
-const centerTextPlugin = {
-  id: 'centerText',
-  beforeDraw(chart) {
-    const { width, height, ctx } = chart;
-    const value = chart.config.data.datasets[0].data[0];
+interface ProgressDoughnutChartProps {
+  progress: number;
+  fontSize: number;
+  positionY: number;
+  options?: ChartOptions<'doughnut'>;
+}
 
-    ctx.restore();
-    const fontSize = (height / 114).toFixed(2);
-    ctx.font = `${fontSize}em sans-serif`;
-    ctx.textBaseline = 'middle';
+const ProgressDoughnutChart: React.FC<ProgressDoughnutChartProps> = ({
+  progress,
+  fontSize,
+  positionY,
+  options,
+}) => {
+  const centerTextPlugin: Plugin = {
+    id: 'centerText',
+    beforeDraw(chart) {
+      const { width, height, ctx } = chart;
 
-    const text = `${value}%`;
-    const textX = Math.round((width - ctx.measureText(text).width) / 2);
-    const textY = height / 2;
+      ctx.restore();
+      ctx.font = `${fontSize}px sans-serif`;
+      ctx.textBaseline = 'middle';
 
-    ctx.fillText(text, textX, textY);
-    ctx.save();
-  },
-};
+      const text = `${progress}%`;
+      const textX = Math.round((width - ctx.measureText(text).width) / 2);
+      const textY = height / 2 + positionY;
 
-ChartJS.register(centerTextPlugin);
+      ctx.fillText(text, textX, textY);
+      ctx.save();
+    },
+  };
 
-const ProgressDoughnutChart = ({ progress, options }) => {
+  ChartJS.register(centerTextPlugin);
+
   const data = {
     labels: ['Progress', 'Remaining'],
     datasets: [
@@ -38,7 +55,7 @@ const ProgressDoughnutChart = ({ progress, options }) => {
     ],
   };
 
-  const defaultOptions = {
+  const defaultOptions: ChartOptions<'doughnut'> = {
     ...options,
     cutout: '70%',
     plugins: {
@@ -48,11 +65,10 @@ const ProgressDoughnutChart = ({ progress, options }) => {
       tooltip: {
         enabled: false,
       },
-      centerText: centerTextPlugin,
     },
   };
 
-  return <Doughnut data={data} options={defaultOptions} />;
+  return <DoughnutChartBase data={data} options={defaultOptions} />;
 };
 
 export default ProgressDoughnutChart;
