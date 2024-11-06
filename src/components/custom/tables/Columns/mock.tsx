@@ -1,4 +1,8 @@
 import { createColumnHelper, GroupColumnDef } from '@tanstack/react-table';
+import {
+  HeaderWithoutSubHeader,
+  SubHeader,
+} from '@/components/custom/tables/Header';
 
 export type Show = {
   show: {
@@ -13,89 +17,28 @@ export type Show = {
 
 const columnHelper = createColumnHelper<Show>();
 
-export const mockColumnss = [
-  columnHelper.group({
-    id: 'tv_show',
-    header: () => <span>TV Show</span>,
-    //now define all columns within this group
-    columns: [
-      columnHelper.accessor('show.name', {
-        header: 'Name',
-        cell: info => info.getValue(),
-      }),
-      columnHelper.accessor('show.type', {
-        header: 'Type',
-        cell: info => info.getValue(),
-      }),
-    ],
-  }),
-  //create another group:
-  columnHelper.group({
-    id: 'details',
-    header: () => <span> Details</span>,
-    columns: [
-      columnHelper.accessor('show.language', {
-        header: 'Language',
-        cell: info => info.getValue(),
-      }),
-      columnHelper.accessor('show.genres', {
-        header: 'Genres',
-        cell: info => info.getValue(),
-      }),
-      columnHelper.accessor('show.runtime', {
-        header: 'Runtime',
-        cell: info => info.getValue(),
-      }),
-      columnHelper.accessor('show.status', {
-        header: 'Status',
-        cell: info => info.getValue(),
-      }),
-    ],
-  }),
-];
-
 export const mockColumns: GroupColumnDef<Show, any>[] = [
-  {
-    id: 'show.name',
-    header: 'Name',
-    cell: info => info.getValue(),
-  },
-  {
-    id: 'show.type',
-    header: 'Type',
-    cell: info => info.getValue(),
-  },
-  {
-    id: 'show.language',
-    header: 'Language',
-    cell: info => info.getValue(),
-  },
-  {
-    id: 'show.genres',
-    header: 'Genres',
-    cell: info => info.getValue(),
-  },
-  {
-    id: 'show.runtime',
-    header: 'Runtime',
-    cell: info => info.getValue(),
-  },
-  {
-    id: 'show.status',
-    header: 'Status',
-    cell: info => info.getValue(),
-  },
+  columnHelper.group({
+    id: 'no',
+    header: () => <HeaderWithoutSubHeader>No</HeaderWithoutSubHeader>,
+    columns: [
+      columnHelper.display({
+        id: 'index',
+        cell: info => info.row.index + 1,
+      }),
+    ],
+  }),
   columnHelper.group({
     id: 'tv_show',
-    header: () => <span>TV Show</span>,
+    header: () => <span className="text-center">TV Show</span>,
     //now define all columns within this group
     columns: [
       columnHelper.accessor('show.name', {
-        header: 'Name',
+        header: () => <SubHeader>Name</SubHeader>,
         cell: info => info.getValue(),
       }),
       columnHelper.accessor('show.type', {
-        header: 'Type',
+        header: () => <SubHeader>Type</SubHeader>,
         cell: info => info.getValue(),
       }),
     ],
@@ -106,19 +49,19 @@ export const mockColumns: GroupColumnDef<Show, any>[] = [
     header: () => <span> Details</span>,
     columns: [
       columnHelper.accessor('show.language', {
-        header: 'Language',
+        header: () => <SubHeader>Language</SubHeader>,
         cell: info => info.getValue(),
       }),
       columnHelper.accessor('show.genres', {
-        header: 'Genres',
+        header: () => <SubHeader>Genres</SubHeader>,
         cell: info => info.getValue(),
       }),
       columnHelper.accessor('show.runtime', {
-        header: 'Runtime',
+        header: () => <SubHeader>Runtime</SubHeader>,
         cell: info => info.getValue(),
       }),
       columnHelper.accessor('show.status', {
-        header: 'Status',
+        header: () => <SubHeader>Status</SubHeader>,
         cell: info => info.getValue(),
       }),
     ],

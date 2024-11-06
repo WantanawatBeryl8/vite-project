@@ -13,16 +13,16 @@ import * as VisuallyHidden from '@radix-ui/react-visually-hidden';
 import { X } from 'lucide-react';
 import { cva, type VariantProps } from 'class-variance-authority';
 
-const contentVariants = cva('overflow-auto', {
+const contentVariants = cva('overflow-auto h-auto', {
   variants: {
-    variant: {
-      default: 'w-auto h-auto',
-      sm: 'w-[670px] h-auto',
-      md: 'w-[8000px] h-auto',
+    size: {
+      default: 'w-auto',
+      sm: 'w-[670px]',
+      md: 'w-[8000px]',
     },
   },
   defaultVariants: {
-    variant: 'default',
+    size: 'default',
   },
 });
 
@@ -36,6 +36,7 @@ interface DialogBaseProps extends DialogVariantsProps {
   footer?: ReactNode;
   children?: ReactNode;
   className?: string;
+  contentSize?: 'default' | 'sm' | 'md';
   contentClassName?: string;
   onInteractOutside?: boolean;
   showCloseButton?: boolean;
@@ -52,7 +53,7 @@ export const DialogBase = ({
   onInteractOutside,
   showCloseButton,
   // Content variants
-  variant,
+  contentSize,
 }: DialogBaseProps) => {
   return (
     <Dialog open={open}>
@@ -81,7 +82,12 @@ export const DialogBase = ({
             </VisuallyHidden.Root>
           </DialogHeader>
         )}
-        <div className={cn(contentVariants({ variant }), contentClassName)}>
+        <div
+          className={cn(
+            contentVariants({ size: contentSize }),
+            contentClassName,
+          )}
+        >
           {children}
         </div>
         {footer && <DialogFooter>{footer}</DialogFooter>}
