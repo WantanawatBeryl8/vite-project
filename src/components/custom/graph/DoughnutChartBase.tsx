@@ -9,11 +9,9 @@ export interface DoughnutChartBaseProps {
   options?: ChartOptions<'doughnut'>;
 }
 
-const DoughnutChartBase: React.FC<DoughnutChartBaseProps> = ({
+export const DoughnutChartBase = ({
   data,
   options,
-}) => {
+}: DoughnutChartBaseProps) => {
   return <Doughnut data={data} options={options} />;
 };
-
-export default DoughnutChartBase;

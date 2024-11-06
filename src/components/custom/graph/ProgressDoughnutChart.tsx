@@ -6,7 +6,7 @@ import {
   Plugin,
   ChartOptions,
 } from 'chart.js';
-import DoughnutChartBase, { DoughnutChartBaseProps } from './DoughnutChartBase';
+import { DoughnutChartBaseProps, DoughnutChartBase } from './DoughnutChartBase';
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
@@ -17,12 +17,12 @@ export interface ProgressDoughnutChartProps {
   options?: ChartOptions<'doughnut'>;
 }
 
-const ProgressDoughnutChart: React.FC<ProgressDoughnutChartProps> = ({
+export const ProgressDoughnutChart = ({
   progress,
   fontSize,
   positionY,
   options,
-}) => {
+}: ProgressDoughnutChartProps) => {
   const centerTextPlugin: Plugin = {
     id: 'centerText',
     beforeDraw(chart) {
@@ -70,5 +70,3 @@ const ProgressDoughnutChart: React.FC<ProgressDoughnutChartProps> = ({
 
   return <DoughnutChartBase data={data} options={defaultOptions} />;
 };
-
-export default ProgressDoughnutChart;

@@ -1,10 +1,11 @@
-import ProgressDoughnutChart, {
+import { BreadcrumbBase } from '@/components/custom/breadcrumb/BreadcrumbBase';
+import {
+  ProgressDoughnutChart,
   ProgressDoughnutChartProps,
 } from '@/components/custom/graph/ProgressDoughnutChart';
 import { Button } from '@/components/ui/button';
 import { siteMap } from '@/core/utils';
 import { useNavigate } from 'react-router-dom';
-import BreadcrumbBase from '@/components/custom/breadcrumb/BreadcrumbBase';
 
 function CustomerInformationPage() {
   const navigate = useNavigate();

@@ -17,7 +17,7 @@ interface BreadcrumbProps {
   menus: BreadcrumbMenu[];
 }
 
-const BreadcrumbBase: React.FC<BreadcrumbProps> = ({ menus }) => {
+export const BreadcrumbBase = ({ menus }: BreadcrumbProps) => {
   return (
     <Breadcrumb>
       <BreadcrumbList>
@@ -37,5 +37,3 @@ const BreadcrumbBase: React.FC<BreadcrumbProps> = ({ menus }) => {
     </Breadcrumb>
   );
 };
-
-export default BreadcrumbBase;
