@@ -1,5 +1,5 @@
 function VerticalNavigation() {
-  return <div className={}>Vertical Navigation</div>;
+  return <div className="bg-slate-500">Vertical Navigation</div>;
 }
 
 export default VerticalNavigation;
