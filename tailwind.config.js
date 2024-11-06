@@ -5,6 +5,9 @@ export default {
   plugins: [require('tailwindcss-animate')],
   theme: {
     extend: {
+      fontFamily: {
+        sans: ['DB-Heavent', 'system-ui', 'sans-serif'],
+      },
       borderRadius: {},
       colors: {
         primary: {
