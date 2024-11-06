@@ -26,7 +26,7 @@ function BOAndFamilyPage() {
         contentClassName="space-y-4"
         onInteractOutside
         header={'Custom Header'}
-        variant="sm"
+        contentSize="sm"
         footer={
           <div className="flex justify-end gap-2">
             <Button variant="outline" onClick={() => setIsOpen(false)}>
