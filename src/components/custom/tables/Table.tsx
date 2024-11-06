@@ -41,13 +41,13 @@ export default function Table<TData>({ columns, data }: DataTableProps<TData>) {
   return (
     <div>
       <table>
-        <thead>
+        <thead className="border">
           {/*use the getHeaderGRoup function to render headers:*/}
           {table.getHeaderGroups().map(headerGroup => (
             <tr key={headerGroup.id}>
               {headerGroup.headers.map(header => (
                 <th
-                  className="border-l"
+                  className="border-x"
                   key={header.id}
                   colSpan={header.colSpan}
                 >

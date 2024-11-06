@@ -1,16 +1,13 @@
-// import { useNavigate } from 'react-router-dom';
-
-import { mockColumns } from '@/components/custom/tables/Columns/mock';
-import DataTable from '@/components/custom/tables/Table';
+import dynamicGroupColumn, {
+  mockColumns,
+} from '@/components/custom/tables/utils/dynamicColumn';
+import Table from '@/components/custom/tables/Table';
 import { Button } from '@/components/ui/button';
-import { useAuth } from '@/core/store/useAuth';
 import { signOut, siteMap } from '@/core/utils';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 
 function PortalPage() {
-  // const navigate = useNavigate();
-
   // all the routes are stored in the siteMap object as key-value pairs
   // set link for link btn to navigate page by siteMap key
   const accountPlanningLink = Object.entries(siteMap.accountPlanning).map(
@@ -20,7 +17,7 @@ function PortalPage() {
     }),
   );
 
-  const [mockData, setData] = useState([]);
+  const [data, setData] = useState([]);
 
   const fetchData = async () => {
     const result = await axios('https://api.tvmaze.com/search/shows?q=snow');
@@ -36,9 +33,6 @@ function PortalPage() {
     name: key,
     link: value,
   }));
-
-  const user = useAuth();
-  console.log(user);
   return (
     <>
       <div className="m-4 flex flex-wrap gap-4 [&>div]:rounded-sm [&>div]:bg-black [&>div]:p-4 [&>div]:text-white">
@@ -72,7 +66,7 @@ function PortalPage() {
       </div>
 
       <div>
-        <DataTable data={mockData} columns={mockColumns} />
+        <Table data={data} columns={dynamicGroupColumn(mockColumns)} />
       </div>
       <div className="flex justify-center">
         <Button
