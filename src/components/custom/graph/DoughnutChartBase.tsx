@@ -4,7 +4,7 @@ import { ChartData, ChartOptions } from 'chart.js';
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
-interface DoughnutChartBaseProps {
+export interface DoughnutChartBaseProps {
   data: ChartData<'doughnut'>;
   options?: ChartOptions<'doughnut'>;
 }

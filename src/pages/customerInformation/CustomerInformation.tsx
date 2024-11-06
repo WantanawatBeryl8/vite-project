@@ -1,14 +1,15 @@
-import ProgressDoughnutChart from '@/components/custom/graph/ProgressDoughnutChart';
+import ProgressDoughnutChart, {
+  ProgressDoughnutChartProps,
+} from '@/components/custom/graph/ProgressDoughnutChart';
 import { Button } from '@/components/ui/button';
 import { siteMap } from '@/core/utils';
 import { useNavigate } from 'react-router-dom';
-import { ChartOptions } from 'chart.js';
 import BreadcrumbBase from '@/components/custom/breadcrumb/BreadcrumbBase';
 
 function CustomerInformationPage() {
   const navigate = useNavigate();
 
-  const options: ChartOptions<'doughnut'> = {
+  const options: ProgressDoughnutChartProps['options'] = {
     responsive: true,
     rotation: -135,
     circumference: 270,

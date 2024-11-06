@@ -6,11 +6,11 @@ import {
   Plugin,
   ChartOptions,
 } from 'chart.js';
-import DoughnutChartBase from './DoughnutChartBase';
+import DoughnutChartBase, { DoughnutChartBaseProps } from './DoughnutChartBase';
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
-interface ProgressDoughnutChartProps {
+export interface ProgressDoughnutChartProps {
   progress: number;
   fontSize: number;
   positionY: number;
@@ -43,7 +43,7 @@ const ProgressDoughnutChart: React.FC<ProgressDoughnutChartProps> = ({
 
   ChartJS.register(centerTextPlugin);
 
-  const data = {
+  const data: DoughnutChartBaseProps['data'] = {
     labels: ['Progress', 'Remaining'],
     datasets: [
       {
@@ -55,7 +55,7 @@ const ProgressDoughnutChart: React.FC<ProgressDoughnutChartProps> = ({
     ],
   };
 
-  const defaultOptions: ChartOptions<'doughnut'> = {
+  const defaultOptions: DoughnutChartBaseProps['options'] = {
     ...options,
     cutout: '70%',
     plugins: {
