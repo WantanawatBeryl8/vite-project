@@ -55,10 +55,11 @@ const VerticalNavigation = () => {
     return (
       <SidebarMenuItem key={menu.key}>
         <SidebarMenuButton asChild>
-          <a href={menu.value} className="w-full">
-            <div className="flex w-full justify-between px-4 py-2 text-[18px] font-semibold text-purple-800 hover:bg-gray-300">
-              <span>{menu.label}</span>
-            </div>
+          <a
+            href={menu.value}
+            className="flex w-full justify-between px-4 py-2 text-[18px] font-semibold text-purple-800 hover:bg-gray-300"
+          >
+            <span>{menu.label}</span>
           </a>
         </SidebarMenuButton>
       </SidebarMenuItem>
