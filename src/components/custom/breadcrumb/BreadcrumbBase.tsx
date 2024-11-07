@@ -9,7 +9,7 @@ import {
 } from '@/components/ui/breadcrumb';
 
 interface BreadcrumbMenu {
-  name: number;
+  name: string;
   path?: string;
 }
 
