@@ -8,7 +8,14 @@
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "format": "prettier --write ./src",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "prepare": "husky install"
+  },
+  "lint-staged": {
+    "*.{ts,tsx}": [
+      "eslint --fix",
+      "prettier --write"
+    ]
   },
   "dependencies": {
     "@fullcalendar/core": "^6.1.15",
@@ -62,6 +69,8 @@
     "eslint-plugin-react-hooks": "^5.0.0",
     "eslint-plugin-react-refresh": "^0.4.13",
     "globals": "^15.11.0",
+    "husky": "^8.0.0",
+    "lint-staged": "^15.2.10",
     "postcss": "^8.4.47",
     "prettier": "3.3.3",
     "prettier-plugin-tailwindcss": "^0.6.8",
