@@ -20,16 +20,13 @@ export default {
         accent: {
           'scb-purple': '#7631C1',
           'dark-purple': '#4F2A6F',
-          // interface color
           'scb-yellow': '#FEAC00',
         },
         messaging: {
-          // interface color
           'mossy-green': '#00603F',
           blue: '#4A90E2',
           'light-yellow': '#FFEAA8',
           'cherry-red': '#DA2E36',
-          // font color
           green: '#06BF59',
           'light-red': '#F05F61',
         },
@@ -49,6 +46,16 @@ export default {
         },
         hover: {
           'light-purple': '#C8ADE6',
+        },
+        sidebar: {
+          DEFAULT: 'hsl(var(--sidebar-background))',
+          foreground: 'hsl(var(--sidebar-foreground))',
+          primary: 'hsl(var(--sidebar-primary))',
+          'primary-foreground': 'hsl(var(--sidebar-primary-foreground))',
+          accent: 'hsl(var(--sidebar-accent))',
+          'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
+          border: 'hsl(var(--sidebar-border))',
+          ring: 'hsl(var(--sidebar-ring))',
         },
       },
       keyframes: {
