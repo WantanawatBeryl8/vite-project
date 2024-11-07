@@ -22,7 +22,7 @@ export const BreadcrumbBase = ({ menus }: BreadcrumbProps) => {
     <Breadcrumb>
       <BreadcrumbList>
         {menus.map((menu, index) => (
-          <BreadcrumbItem key={index}>
+          <BreadcrumbItem key={menu.path}>
             {menu.path ? (
               <BreadcrumbLink>
                 <Link to={menu.path}>{menu.name}</Link>

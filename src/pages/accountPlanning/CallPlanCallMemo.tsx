@@ -1,13 +1,15 @@
+import { LayoutMain } from '@/components/custom/layouts/LayoutMain';
 import { Button } from '@/components/ui/button';
+import { siteMap } from '@/core/utils';
 import { useNavigate } from 'react-router-dom';
 
 function CallPlanCallMemoPage() {
   const navigate = useNavigate();
 
   return (
-    <div>
+    <LayoutMain>
       <h1>CallPlan / CallMemo</h1>
-      <Button onClick={() => navigate('/portal')}>Back</Button>
+      <Button onClick={() => navigate(siteMap.portal)}>Back</Button>
       <div className="mt-4">
         <h1 className="text-2xl">===Font===</h1>
         <p className="text-red-500">// Thin (100)</p>
@@ -32,7 +34,7 @@ function CallPlanCallMemoPage() {
         <div className="font-black">ข้อความ</div>
         <div className="font-black italic">ข้อความตัวเอียง</div>
       </div>
-    </div>
+    </LayoutMain>
   );
 }
 

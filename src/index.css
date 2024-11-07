@@ -101,6 +101,10 @@
     font-style: italic;
   }
 
+  body {
+    @apply min-h-[100vh] min-w-[320px] bg-primary-white text-primary-fake-black;
+  }
+
   /* Headers */
   h1,
   h2,
@@ -138,7 +142,12 @@
 
   /* Paragraphs */
   p {
-    font-weight: 400;
+    @apply font-normal;
+  }
+
+  /* table */
+  th {
+    @apply p-0;
   }
 }
 
@@ -146,18 +155,4 @@
   font-family: 'DB-Heavent', system-ui, sans-serif;
   line-height: 1.5;
   font-weight: 400;
-}
-
-body {
-  color: #213547;
-  background-color: #ffffff;
-  margin: 0;
-  display: flex;
-  place-content: center;
-  min-width: 320px;
-  min-height: 100vh;
-}
-
-th {
-  padding: 0;
 }
