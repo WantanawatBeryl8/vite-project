@@ -10,7 +10,7 @@ export const accountPlanningRouter: RouteObject[] = [
     ),
   },
   {
-    path: siteMap.accountPlanning.smeBUsiness,
+    path: siteMap.accountPlanning.smeBusiness,
     Component: loadable(() => import('@/pages/accountPlanning/SMEBusiness')),
   },
   {
