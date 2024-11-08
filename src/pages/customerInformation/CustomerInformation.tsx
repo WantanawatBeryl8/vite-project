@@ -3,6 +3,7 @@ import {
   ProgressDoughnutChart,
   ProgressDoughnutChartProps,
 } from '@/components/custom/graph/ProgressDoughnutChart';
+import { LayoutMain } from '@/components/custom/layouts/LayoutMain';
 import { Button } from '@/components/ui/button';
 import { siteMap } from '@/core/utils';
 import { useNavigate } from 'react-router-dom';
@@ -32,29 +33,31 @@ function CustomerInformationPage() {
   ];
 
   return (
-    <div>
-      <h1>Customer Information Page</h1>
-      <Button
-        className="m-4 flex"
-        onClick={() => navigate(siteMap.portal)}
-        variant="default"
-      >
-        Back
-      </Button>
+    <LayoutMain>
       <div>
-        <h1>Progress Doughnut Chart</h1>
-        <ProgressDoughnutChart
-          progress={75}
-          fontSize={30}
-          positionY={15}
-          options={options}
-        />
+        <h1>Customer Information Page</h1>
+        <Button
+          className="m-4 flex"
+          onClick={() => navigate(siteMap.portal)}
+          variant="default"
+        >
+          Back
+        </Button>
+        <div>
+          <h1>Progress Doughnut Chart</h1>
+          <ProgressDoughnutChart
+            progress={75}
+            fontSize={30}
+            positionY={15}
+            options={options}
+          />
+        </div>
+        <div>
+          <h1>Breadcrumb Base</h1>
+          <BreadcrumbBase menus={menus} />
+        </div>
       </div>
-      <div>
-        <h1>Breadcrumb Base</h1>
-        <BreadcrumbBase menus={menus} />
-      </div>
-    </div>
+    </LayoutMain>
   );
 }
 
